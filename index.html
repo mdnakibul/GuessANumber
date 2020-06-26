@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Guess a number</title>
+
+<style type="text/css"> 
+	body {
+        font-family: sans-serif;
+		background: -ml-linear-gradient(360deg, black, #00000040);
+		background: linear-gradient(360deg, black, #00000040);
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 100%;
+		height: 100vh;
+		text-transform: uppercase;
+	}
+	h2{
+		color: #adadad;
+		font-size: 7vw;
+		text-shadow: 0px -2px 5px black;
+	}
+	#inp{
+		height: 40px;
+		width: 20vw;
+		min-width:200px;
+		background: transparent;
+		color: #adadad;
+		box-shadow: inset 1px 1px 6px 0px black;
+		border: 3px solid #333;
+		border-radius: 15px;
+		font-size: 24px;
+		font-weight: 600;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	#inp:focus{
+		border: none;
+		
+	}
+	.wrapper {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+	}
+	button {
+		background: -webkit-linear-gradient(top, transparent, black);
+		background:linear-gradient(45deg, transparent, black);
+		color: #adadad;
+		border: none;
+		margin-top: 25px;
+		font-size: 20px;
+		text-transform: uppercase;
+		padding: 12px 20px;
+		border-radius: 10px;
+		box-shadow: -1px 2px 4px black;
+	}
+
+
+	p#result{
+		color:#adadad;
+	}
+</style>
+</head>
+<body>
+	<div class="wrapper">
+		<h2> Guess the number :</h2>
+		<input type="number" name="InputNumber" id="inp" placeholder='Within 1 - 10'/>
+		<button onclick='match()'>submit</button>
+		<p id="result">Input A Number Within 1 - 10</p>
+	</div>
+<script type="text/javascript">
+
+	function match(){
+		var inpNum = (document.querySelector('input').value);
+		var randomNum = Math.ceil(Math.random() * 10);
+		var result = document.getElementById('result');
+		if(inpNum == ""){
+			result.textContent = 'Please Input the Number';
+		}
+		else if(inpNum == randomNum){
+			result.textContent = 'Congratulations! Number Matched!';
+		}else{
+			result.textContent = "Sorry, don't matched. The number was : " + randomNum;
+
+		}
+		console.log(typeof(inpNum));
+	}
+</script>
+
+</body>
+</html>
